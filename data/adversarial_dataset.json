@@ -1,0 +1,422 @@
+[
+  {
+    "id": "adv_fals_13eaacc5",
+    "question": "In 1858, the Virgin Mary allegedly appeared to Saint Bernadette Soubirous at the age of 45, in Lourdes, France.",
+    "reference_answer": "The correct information about Saint Bernadette Soubirous is that she was a 14-year-old girl at the time of the apparition in 1858.",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_false_premise",
+    "context": "To whom did the Virgin Mary allegedly appear in 1858 in Lourdes France?",
+    "tags": [
+      "adversarial",
+      "false_premise",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_misl_eb555e9b",
+    "question": "The famous copper statue of Christ in Paris is often mistaken for a landmark in front of the Notre Dame Main Building. What is in front of the Notre Dame Main Building?",
+    "reference_answer": "The Seine River and the street 'Rue du Bac' are visible in front of the Notre Dame Main Building, but the most notable landmark visible would be the Seine River.",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_misleading_context",
+    "context": "What is in front of the Notre Dame Main Building?",
+    "tags": [
+      "adversarial",
+      "misleading_context",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_nega_0d0048d7",
+    "question": "The Basilica of the Sacred Heart at Notre Dame is not located beside the structure that it is most often not associated with.",
+    "reference_answer": "the Main Building",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_negation_trap",
+    "context": "The Basilica of the Sacred heart at Notre Dame is beside to which structure?",
+    "tags": [
+      "adversarial",
+      "negation_trap",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_fals_9e8e1f1f",
+    "question": "What is the Grotto at Notre Dame, which was originally dedicated to the veneration of Saint Anne, the mother of the Virgin Mary?",
+    "reference_answer": "The Grotto at Notre Dame is actually a Marian place of prayer and reflection, but it was originally dedicated to Our Lady of Lourdes, not Saint Anne.",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_false_premise",
+    "context": "What is the Grotto at Notre Dame?",
+    "tags": [
+      "adversarial",
+      "false_premise",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_misl_1c60cd9e",
+    "question": "Notre Dame Cathedral has undergone several renovations due to its iconic gargoyles, which are often associated with Gothic architecture. What sits on top of the Main Building at Notre Dame?",
+    "reference_answer": "a golden statue of the Virgin Mary",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_misleading_context",
+    "context": "What sits on top of the Main Building at Notre Dame?",
+    "tags": [
+      "adversarial",
+      "misleading_context",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_nega_56c6c6a6",
+    "question": "When did the Scholastic Magazine of Notre Dame NOT begin publishing prior to 1876?",
+    "reference_answer": "September 1876",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_negation_trap",
+    "context": "When did the Scholastic Magazine of Notre dame begin publishing?",
+    "tags": [
+      "adversarial",
+      "negation_trap",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_fals_a811afab",
+    "question": "Notre Dame's the Juggler is a student-run publication that focuses primarily on campus events; how often is it published?",
+    "reference_answer": "I'm not aware of any information about a publication called 'Notre Dame's the Juggler.' However, I do know that Notre Dame has 'The Observer,' which is its student-run newspaper.",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_false_premise",
+    "context": "How often is Notre Dame's the Juggler published?",
+    "tags": [
+      "adversarial",
+      "false_premise",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_misl_f9620d15",
+    "question": "I'm trying to find the best student newspaper in the Ivy League, so what is the daily student paper at Notre Dame called?",
+    "reference_answer": "The Observer",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_misleading_context",
+    "context": "What is the daily student paper at Notre Dame called?",
+    "tags": [
+      "adversarial",
+      "misleading_context",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_nega_b0166197",
+    "question": "How many student newspapers are NOT typically found at institutions other than Notre Dame?",
+    "reference_answer": "three",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_negation_trap",
+    "context": "How many student news papers are found at Notre Dame?",
+    "tags": [
+      "adversarial",
+      "negation_trap",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_fals_bf9c8601",
+    "question": "The student paper Common Sense was founded by a journalism student who was also a member of the Notre Dame Debate Team and began publication in what year?",
+    "reference_answer": "The correct information about Common Sense is not found in the provided statement, which seems to introduce an unrelated aspect of the student's background.",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_false_premise",
+    "context": "In what year did the student paper Common Sense begin publication at Notre Dame?",
+    "tags": [
+      "adversarial",
+      "false_premise",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_misl_4569baf2",
+    "question": "The Congregation of the Holy Cross is a well-known Catholic organization that has a strong presence in Italy, particularly in the northern regions. Where is the headquarters of the Congregation of the Holy Cross?",
+    "reference_answer": "Rome",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_misleading_context",
+    "context": "Where is the headquarters of the Congregation of the Holy Cross?",
+    "tags": [
+      "adversarial",
+      "misleading_context",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_nega_00653f85",
+    "question": "What institution is not the primary seminary of the Congregation of the Holy Cross?",
+    "reference_answer": "Moreau Seminary",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_negation_trap",
+    "context": "What is the primary seminary of the Congregation of the Holy Cross?",
+    "tags": [
+      "adversarial",
+      "negation_trap",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_fals_716ea42a",
+    "question": "Notre Dame was originally founded as a Benedictine monastery before being converted to a cathedral, what is the oldest structure at the site?",
+    "reference_answer": "The statement that Notre Dame was originally founded as a Benedictine monastery before being converted to a cathedral is incorrect. While Notre Dame Cathedral is a beautiful example of Gothic architecture, the site of the cathedral was actually first used as a monastery of canons regular, known as the Abbey of Saint-Germain-des-Prés had some influence but the site of Notre Dame was initially a Roman temple site then the Carolingian chapel of Saint-Etienne, later known as Notre Dame from 1182, making 'Old College' the oldest structure at the site.",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_false_premise",
+    "context": "What is the oldest structure at Notre Dame?",
+    "tags": [
+      "adversarial",
+      "false_premise",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_misl_62162289",
+    "question": "The new student housing development at Notre Dame University has been a topic of discussion among the student body, with many questioning whether the dorms will be open to students from outside the Catholic community. What individuals live at Fatima House at Notre Dame?",
+    "reference_answer": "Retired priests and brothers",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_misleading_context",
+    "context": "What individuals live at Fatima House at Notre Dame?",
+    "tags": [
+      "adversarial",
+      "misleading_context",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_nega_35cfcd15",
+    "question": "Which prize did Frederick Buechner not create?",
+    "reference_answer": "Buechner Prize for Preaching",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_negation_trap",
+    "context": "Which prize did Frederick Buechner create?",
+    "tags": [
+      "adversarial",
+      "negation_trap",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_fals_c657377c",
+    "question": "How many BS level degrees are offered in the College of Engineering at Notre Dame, which is one of the largest engineering colleges in the country?",
+    "reference_answer": "I'm not sure, but I can tell you that the College of Engineering at Notre Dame is not the largest engineering college in the country. Can you provide more context or information about the question?",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_false_premise",
+    "context": "How many BS level degrees are offered in the College of Engineering at Notre Dame?",
+    "tags": [
+      "adversarial",
+      "false_premise",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_misl_732ba4ce",
+    "question": "The University of Michigan is known for its engineering programs, and Notre Dame's College of Engineering was actually formed after a merger with a prominent engineering school from the Midwest in 1920. In what year was the College of Engineering at Notre Dame formed?",
+    "reference_answer": "1920",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_misleading_context",
+    "context": "In what year was the College of Engineering at Notre Dame formed?",
+    "tags": [
+      "adversarial",
+      "misleading_context",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_nega_2a90e142",
+    "question": "The College of Engineering was not created without prior studies at which Notre Dame college?",
+    "reference_answer": "the College of Science",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_negation_trap",
+    "context": "Before the creation of the College of Engineering similar studies were carried out at which Notre Dame college?",
+    "tags": [
+      "adversarial",
+      "negation_trap",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_fals_69780362",
+    "question": "The Stinson-Remick Hall of Engineering is located on the North Campus of Michigan State University. How many departments are within the Stinson-Remick Hall of Engineering?",
+    "reference_answer": "I'm not sure about the number of departments within the Stinson-Remick Hall of Engineering, but I would like to verify the location first. The Stinson-Remick Hall of Engineering is actually located on the East Lansing campus, not the North Campus.",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_false_premise",
+    "context": "How many departments are within the Stinson-Remick Hall of Engineering?",
+    "tags": [
+      "adversarial",
+      "false_premise",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_misl_12c98f79",
+    "question": "The College of Science at Notre Dame was established in the 1980s to cater to students from the Midwest, where civil engineering is a major field of study. The College of Science began to offer civil engineering courses beginning at what time at Notre Dame?",
+    "reference_answer": "the 1870s",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_misleading_context",
+    "context": "The College of Science began to offer civil engineering courses beginning at what time at Notre Dame?",
+    "tags": [
+      "adversarial",
+      "misleading_context",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_nega_fe5ddbb1",
+    "question": "What entity at Notre Dame does not typically provide help with the management of time for new students?",
+    "reference_answer": "Learning Resource Center (as it is involved in other aspects of student support)",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_negation_trap",
+    "context": "What entity provides help with the management of time for new students at Notre Dame?",
+    "tags": [
+      "adversarial",
+      "negation_trap",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_fals_40a180cf",
+    "question": "Notre Dame is known for its strong engineering programs and has recently expanded its curriculum to include more technical fields, so how many colleges for undergraduates does Notre Dame have?",
+    "reference_answer": "I'm not sure, but I think the question contains a false premise. According to my knowledge, Notre Dame's academic structure is divided into four colleges: the College of Arts and Letters, the College of Engineering, the Mendoza College of Business, and the College of Science. However, there is no evidence that Notre Dame has recently expanded its curriculum to include more technical fields.",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_false_premise",
+    "context": "How many colleges for undergraduates are at Notre Dame?",
+    "tags": [
+      "adversarial",
+      "false_premise",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_misl_e3b21b5c",
+    "question": "The University of Notre Dame's athletic teams were named after the famous cathedral in Paris, and in 1962, the school created the 'Sports Academy' to help freshmen athletes prepare for their first year of competition. What was created at Notre Dame in 1962 to assist first year students?",
+    "reference_answer": "The First Year of Studies program",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_misleading_context",
+    "context": "What was created at Notre Dame in 1962 to assist first year students?",
+    "tags": [
+      "adversarial",
+      "misleading_context",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_nega_9b0257b9",
+    "question": "Which organization did not declare the First Year of Studies program at Notre Dame 'not outstanding'?",
+    "reference_answer": "U.S. News & World Report",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_negation_trap",
+    "context": "Which organization declared the First Year of Studies program at Notre Dame \"outstanding?\"",
+    "tags": [
+      "adversarial",
+      "negation_trap",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_fals_c0939181",
+    "question": "The University of Paris, which initially granted Doctorate degrees, was the institution that also established the first Doctorate programs in the United States, which led to Notre Dame granting its first Doctorate in 1924.",
+    "reference_answer": "I'm not sure about the statement. To answer the question, I would need to verify that the University of Paris initially granted Doctorate degrees in the United States, as it seems the premise might be incorrect.",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_false_premise",
+    "context": "The granting of Doctorate degrees first occurred in what year at Notre Dame?",
+    "tags": [
+      "adversarial",
+      "false_premise",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_misl_2b1fdbb7",
+    "question": "In a recent survey, 75% of respondents believed that an M.Div. was a doctoral degree in divination, leading many to pursue it as a way to become more skilled in tarot card reading and astrology.",
+    "reference_answer": "Master of Divinity",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_misleading_context",
+    "context": "What type of degree is an M.Div.?",
+    "tags": [
+      "adversarial",
+      "misleading_context",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_nega_626af042",
+    "question": "Which program at Notre Dame does not offer a Master of Education degree, except for the one that actually does?",
+    "reference_answer": "Alliance for Catholic Education",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_negation_trap",
+    "context": "Which program at Notre Dame offers a Master of Education degree?",
+    "tags": [
+      "adversarial",
+      "negation_trap",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_fals_212d43ee",
+    "question": "Notre Dame first introduced its Master of Arts course in 1854, but initially it was only open to students from the United States and Canada to meet the requirements of the Morrill Act.",
+    "reference_answer": "The question contains an incorrect assumption. The Morrill Act was a federal law that provided grants to colleges that offered agricultural and mechanical arts education, but it did not specify any geographic restrictions on student enrollment. Therefore, it is likely that the Master of Arts course at Notre Dame was always open to students from all over the world, regardless of nationality.",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_false_premise",
+    "context": "In what year was a Master of Arts course first offered at Notre Dame?",
+    "tags": [
+      "adversarial",
+      "false_premise",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_misl_1b67ebf7",
+    "question": "The University of Notre Dame has decided to discontinue its prestigious doctoral program in the College of Arts and Letters due to low enrollment. Which department at Notre Dame is the only one to not offer a PhD program?",
+    "reference_answer": "Department of Pre-Professional Studies",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_misleading_context",
+    "context": "Which department at Notre Dame is the only one to not offer a PhD program?",
+    "tags": [
+      "adversarial",
+      "misleading_context",
+      "squad"
+    ]
+  },
+  {
+    "id": "adv_nega_25825a1a",
+    "question": "What institute at Notre Dame does not study the reasons for violent conflict?",
+    "reference_answer": "The Joan B. Kroc Institute for International Peace Studies",
+    "category": "adversarial",
+    "difficulty": "hard",
+    "source": "adversarial_negation_trap",
+    "context": "What institute at Notre Dame studies  the reasons for violent conflict?",
+    "tags": [
+      "adversarial",
+      "negation_trap",
+      "squad"
+    ]
+  }
+]

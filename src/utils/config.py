@@ -7,7 +7,7 @@ load_dotenv()
 class Config(BaseModel):
     groq_api_key: str
     gemini_api_key: str
-    judge_model: str = "gemini-2.5-flash"
+    judge_model: str = "llama-3.3-70b-versatile"
     pipeline_model: str = "llama-3.1-8b-instant"
     temperature: float = 0.0
     max_tokens: int = 1024
