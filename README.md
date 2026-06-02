@@ -62,29 +62,30 @@ Deterministic, no API calls, runs locally:
 ---
 
 ## 🏗️ Architecture
+
+```
 llm-eval-benchmark/
 ├── src/
 │   ├── pipelines/
-│   │   ├── base.py              # Pluggable pipeline interface
-│   │   ├── groq_pipeline.py     # Groq (LLaMA 3) wrapper
-│   │   └── gemini_pipeline.py   # Gemini wrapper
+│   │   ├── base.py                   # Pluggable pipeline interface
+│   │   ├── groq_pipeline.py          # Groq (LLaMA 3) wrapper
+│   │   └── gemini_pipeline.py        # Gemini wrapper
 │   ├── evals/
-│   │   ├── llm_judge.py         # LLM-as-judge with rubric scoring
-│   │   ├── self_consistency.py  # Hallucination detection
-│   │   ├── reference_metrics.py # ROUGE + BERTScore + F1
+│   │   ├── llm_judge.py              # LLM-as-judge with rubric scoring
+│   │   ├── self_consistency.py       # Hallucination detection
+│   │   ├── reference_metrics.py      # ROUGE + BERTScore + F1
 │   │   ├── adversarial_generator.py  # Auto adversarial test cases
-│   │   └── eval_runner.py       # Orchestrates full eval pipeline
+│   │   └── eval_runner.py            # Orchestrates full eval pipeline
 │   └── utils/
-│       ├── aggregator.py        # Score aggregation into EvalReport
-│       ├── regression_store.py  # SQLite versioned run history
-│       ├── dataset_loader.py    # HuggingFace dataset integration
-│       └── data_models.py       # TestCase, EvalResult dataclasses
-├── app.py                       # Streamlit dashboard
-├── run_full_eval.py             # CLI eval runner
-├── build_dataset.py             # Dataset builder
-└── tests/                       # 35+ passing tests
-
----
+│       ├── aggregator.py             # Score aggregation into EvalReport
+│       ├── regression_store.py       # SQLite versioned run history
+│       ├── dataset_loader.py         # HuggingFace dataset integration
+│       └── data_models.py            # TestCase, EvalResult dataclasses
+├── app.py                            # Streamlit dashboard
+├── run_full_eval.py                  # CLI eval runner
+├── build_dataset.py                  # Dataset builder
+└── tests/                            # 35+ passing tests
+```
 
 ## 📊 Dashboard
 
