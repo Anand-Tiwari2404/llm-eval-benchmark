@@ -143,16 +143,17 @@ python run_full_eval.py
 pytest tests/ -v
 ```
 
-tests/test_setup.py          ✅ 3 passed   — API connectivity
-tests/test_pipelines.py      ✅ 4 passed   — Pipeline wrappers
-tests/test_dataset.py        ✅ 5 passed   — Dataset loading
-tests/test_adversarial.py    ✅ 5 passed   — Adversarial generation
-tests/test_llm_judge.py      ✅ 4 passed   — LLM judge scoring
-tests/test_self_consistency.py ✅ 4 passed — Consistency detection
-tests/test_reference_metrics.py ✅ 6 passed — ROUGE + BERTScore
-tests/test_aggregator.py     ✅ 4 passed   — Regression detection
-
----
+| Test File | Status | What it tests |
+|---|---|---|
+| `test_setup.py` | ✅ 3 passed | API connectivity — Groq + Gemini |
+| `test_pipelines.py` | ✅ 4 passed | Pipeline wrappers + error handling |
+| `test_dataset.py` | ✅ 5 passed | Dataset loading + structure validation |
+| `test_adversarial.py` | ✅ 5 passed | Adversarial test case generation |
+| `test_llm_judge.py` | ✅ 4 passed | LLM judge scoring + all dimensions |
+| `test_self_consistency.py` | ✅ 4 passed | Consistency detection + batch scoring |
+| `test_reference_metrics.py` | ✅ 6 passed | ROUGE-L + BERTScore + Exact Match |
+| `test_aggregator.py` | ✅ 4 passed | Regression detection + SQLite store |
+| **Total** | **✅ 35 passed** | **0 failed** |
 
 ## 🗺️ Roadmap
 
