@@ -395,3 +395,116 @@ if results_data:
         st.success("🎉 No failures in this run!")
 else:
     st.info("Run an eval to see failure analysis.")
+
+# ── Cost vs Quality Bubble Chart ──────────────────────────
+st.markdown("---")
+st.subheader("💰 Cost vs Quality — Model Comparison")
+
+if runs and len(runs) >= 2:
+    bubble_data = []
+    for run in runs:
+        bubble_data.append({
+            "Model": run["pipeline_model"],
+            "Run ID": run["run_id"],
+            "Quality Score": run["judge_avg_score"],
+            "Cost per run ($)": run["total_cost_usd"],
+            "Latency (s)": run["avg_latency_seconds"],
+            "Pass Rate": run["judge_pass_rate"],
+            "Cases": run["total_cases"]
+        })
+
+    df_bubble = pd.DataFrame(bubble_data)
+
+    fig_bubble = px.scatter(
+        df_bubble,
+        x="Cost per run ($)",
+        y="Quality Score",
+        size="Latency (s)",
+        color="Model",
+        hover_name="Run ID",
+        hover_data={
+            "Pass Rate": True,
+            "Cases": True,
+            "Latency (s)": True,
+            "Cost per run ($)": ":.6f",
+            "Quality Score": ":.1f"
+        },
+        size_max=50,
+        title="Cost vs Quality — bubble size = latency"
+    )
+
+    fig_bubble.update_layout(
+        plot_bgcolor="rgba(0,0,0,0)",
+        paper_bgcolor="rgba(0,0,0,0)",
+        font=dict(color="#cdd6f4"),
+        height=420,
+        xaxis=dict(showgrid=True, gridcolor="#313244"),
+        yaxis=dict(showgrid=True, gridcolor="#313244", range=[0, 105]),
+    )
+
+    fig_bubble.add_hline(
+        y=60,
+        line_dash="dash",
+        line_color="#f38ba8",
+        annotation_text="Pass threshold (60)",
+        annotation_position="bottom right"
+    )
+
+    st.plotly_chart(fig_bubble, use_container_width=True)
+    st.caption("Each bubble = one eval run. Bigger bubble = slower response. Ideal = top-left corner (high quality, low cost).")
+
+elif runs and len(runs) == 1:
+    st.info("Run eval at least twice to see the cost vs quality comparison.")
+else:
+    st.info("No runs yet. Click Run Eval to get started.")
+
+
+# ── Judge dimension radar chart ───────────────────────────
+st.markdown("---")
+st.subheader("🕸️ Judge Dimensions Radar")
+
+if report_data:
+    categories = [
+        "Correctness", "Relevance",
+        "Completeness", "Hallucination"
+    ]
+    values = [
+        rd.get("judge_avg_correctness", 0),
+        rd.get("judge_avg_relevance", 0),
+        rd.get("judge_avg_completeness", 0),
+        rd.get("judge_avg_hallucination", 0),
+    ]
+    # Close the radar loop
+    values_closed = values + [values[0]]
+    categories_closed = categories + [categories[0]]
+
+    fig_radar = go.Figure()
+    fig_radar.add_trace(go.Scatterpolar(
+        r=values_closed,
+        theta=categories_closed,
+        fill='toself',
+        fillcolor='rgba(137, 180, 250, 0.2)',
+        line=dict(color='#89b4fa', width=2),
+        name=rd.get("pipeline_model", "model")
+    ))
+
+    fig_radar.update_layout(
+        polar=dict(
+            radialaxis=dict(
+                visible=True,
+                range=[0, 5],
+                showgrid=True,
+                gridcolor="#313244",
+                color="#6c7086"
+            ),
+            angularaxis=dict(color="#cdd6f4"),
+            bgcolor="rgba(0,0,0,0)"
+        ),
+        paper_bgcolor="rgba(0,0,0,0)",
+        font=dict(color="#cdd6f4"),
+        height=380,
+        showlegend=True,
+        margin=dict(l=60, r=60, t=40, b=40)
+    )
+    st.plotly_chart(fig_radar, use_container_width=True)
+    st.caption("Radar shows avg score per judge dimension (0–5). Bigger area = better overall quality.")
