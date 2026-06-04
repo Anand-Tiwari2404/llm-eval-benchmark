@@ -165,7 +165,7 @@ pytest tests/ -v
 - [x] ROUGE-L + BERTScore + Exact Match + F1
 - [x] Score aggregator + SQLite regression store
 - [x] Streamlit dashboard with run history
-- [ ] Cost vs quality bubble chart
+- [x] Cost vs quality bubble chart
 - [ ] Multi-model comparison (Groq vs Gemini)
 - [ ] Deploy to Hugging Face Spaces
 - [ ] Docker container
