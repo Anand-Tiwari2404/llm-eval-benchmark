@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from pydantic import BaseModel
 
+# load_dotenv works locally, HF Spaces uses env vars directly
 load_dotenv()
 
 class Config(BaseModel):
@@ -14,12 +15,13 @@ class Config(BaseModel):
 
 def load_config() -> Config:
     groq_key = os.getenv("GROQ_API_KEY")
-    gemini_key = os.getenv("GEMINI_API_KEY")
+    gemini_key = os.getenv("GEMINI_API_KEY", "placeholder")
 
     if not groq_key:
-        raise ValueError("GROQ_API_KEY not found in .env file")
-    if not gemini_key:
-        raise ValueError("GEMINI_API_KEY not found in .env file")
+        raise ValueError(
+            "GROQ_API_KEY not found. "
+            "Set it in .env locally or as a Space secret on HF Spaces."
+        )
 
     return Config(
         groq_api_key=groq_key,

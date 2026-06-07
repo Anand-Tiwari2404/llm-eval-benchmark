@@ -4,6 +4,15 @@ import plotly.graph_objects as go
 import plotly.express as px
 from datetime import datetime
 import uuid
+import os
+
+# Check for API keys — show friendly error on HF Spaces if missing
+if not os.getenv("GROQ_API_KEY"):
+    st.error(
+        "⚠️ GROQ_API_KEY not found. "
+        "Please set it as a Space secret in Settings → Variables and secrets."
+    )
+    st.stop()
 
 from src.utils.config import load_config
 from src.utils.dataset_loader import load_dataset_from_file
@@ -508,3 +517,150 @@ if report_data:
     )
     st.plotly_chart(fig_radar, use_container_width=True)
     st.caption("Radar shows avg score per judge dimension (0–5). Bigger area = better overall quality.")
+
+# ── Adversarial vs Normal comparison ─────────────────────
+st.markdown("---")
+st.subheader("⚔️ Adversarial vs Normal Performance")
+
+if results_data:
+    normal = [
+        r for r in results_data
+        if "adversarial" not in r.metadata.get("source", "")
+    ]
+    adversarial = [
+        r for r in results_data
+        if "adversarial" in r.metadata.get("source", "")
+    ]
+
+    def avg_score(result_list):
+        scores = [
+            r.scores.get("judge", {}).get("overall_score", 0)
+            for r in result_list
+        ]
+        return round(sum(scores) / len(scores), 1) if scores else 0
+
+    def pass_rate(result_list):
+        if not result_list:
+            return 0
+        passed = sum(
+            1 for r in result_list
+            if r.metadata.get("verdict") == "PASS"
+        )
+        return round(passed / len(result_list) * 100, 1)
+
+    col_n, col_a = st.columns(2)
+
+    with col_n:
+        st.markdown("**📝 Normal cases**")
+        if normal:
+            st.metric("Cases", len(normal))
+            st.metric("Pass rate", f"{pass_rate(normal)}%")
+            st.metric("Avg judge score", f"{avg_score(normal)}/100")
+        else:
+            st.info("No normal cases in this run.")
+
+    with col_a:
+        st.markdown("**⚔️ Adversarial cases**")
+        if adversarial:
+            st.metric("Cases", len(adversarial))
+            st.metric("Pass rate", f"{pass_rate(adversarial)}%")
+            st.metric("Avg judge score", f"{avg_score(adversarial)}/100")
+        else:
+            st.info("Run with adversarial dataset to see comparison.")
+
+    if normal and adversarial:
+        drop = avg_score(normal) - avg_score(adversarial)
+        if drop > 10:
+            st.warning(
+                f"⚠️ Model scores **{drop:.1f} points lower** on adversarial "
+                f"cases — it's vulnerable to tricky inputs."
+            )
+        else:
+            st.success(
+                f"✅ Model is robust — only **{drop:.1f} point drop** "
+                f"on adversarial cases."
+            )
+else:
+    st.info("Run an eval to see adversarial vs normal breakdown.")
+
+
+# ── Export report ─────────────────────────────────────────
+st.markdown("---")
+st.subheader("📤 Export Report")
+
+if report_data:
+    import json
+
+    if hasattr(report_data, 'to_dict'):
+        export_dict = report_data.to_dict()
+    else:
+        export_dict = report_data
+
+    export_json = json.dumps(export_dict, indent=2)
+
+    col_exp1, col_exp2 = st.columns([1, 3])
+    with col_exp1:
+        st.download_button(
+            label="⬇️ Download JSON report",
+            data=export_json,
+            file_name=f"{rd.get('run_id', 'report')}.json",
+            mime="application/json"
+        )
+    with col_exp2:
+        st.caption(
+            f"Downloads full eval report for `{rd.get('run_id')}` "
+            f"including all scores, metadata, and category breakdown."
+        )
+
+
+# ── Summary insight ───────────────────────────────────────
+st.markdown("---")
+st.subheader("💡 Auto Insight")
+
+if report_data:
+    insights = []
+
+    pass_rate_val = rd.get("judge_pass_rate", 0)
+    bert_val = rd.get("avg_bert_f1", 0)
+    hallucination_val = rd.get("judge_avg_hallucination", 0)
+    exact_val = rd.get("avg_exact_match", 0)
+    rouge_val = rd.get("avg_rouge_l", 0)
+
+    if pass_rate_val >= 80:
+        insights.append("✅ **Strong pipeline** — pass rate above 80%. Ready for production testing.")
+    elif pass_rate_val >= 60:
+        insights.append("⚠️ **Decent pipeline** — pass rate between 60-80%. Room for prompt improvement.")
+    else:
+        insights.append("🚨 **Weak pipeline** — pass rate below 60%. Significant prompt engineering needed.")
+
+    if hallucination_val < 3.0:
+        insights.append("🚨 **High hallucination risk** — avg hallucination score below 3/5. Check failure cases.")
+    else:
+        insights.append("✅ **Low hallucination** — model stays grounded in most responses.")
+
+    if bert_val >= 0.75:
+        insights.append("✅ **High semantic accuracy** — BERTScore above 0.75 means answers are meaningfully correct.")
+    elif bert_val >= 0.60:
+        insights.append("⚠️ **Moderate semantic accuracy** — BERTScore between 0.60-0.75.")
+    else:
+        insights.append("🚨 **Low semantic accuracy** — BERTScore below 0.60. Answers are drifting from reference.")
+
+    if exact_val < 0.1:
+        insights.append("ℹ️ **Low exact match** — model gives verbose answers. Consider prompting for concise responses.")
+
+    for insight in insights:
+        st.markdown(insight)
+
+
+# ── Footer ────────────────────────────────────────────────
+st.markdown("---")
+st.markdown(
+    """
+    <div style='text-align: center; color: #6c7086; font-size: 0.8rem; padding: 1rem 0;'>
+        🧪 LLM Eval Benchmark Builder · Built by
+        <a href='https://github.com/Anand-Tiwari2404' style='color: #89b4fa;'>Anand Tiwari</a>
+        · Powered by Groq · Streamlit · SQLite
+    </div>
+    """,
+    unsafe_allow_html=True
+)

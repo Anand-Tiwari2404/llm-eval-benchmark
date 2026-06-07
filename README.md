@@ -1,3 +1,13 @@
+---
+title: LLM Eval Benchmark Builder
+emoji: 🧪
+colorFrom: blue
+colorTo: purple
+sdk: docker
+pinned: true
+app_port: 7860
+---
+
 # 🧪 LLM Eval Benchmark Builder
 
 > **Automated evaluation infrastructure for LLM pipelines** — because shipping AI without evals is flying blind.
