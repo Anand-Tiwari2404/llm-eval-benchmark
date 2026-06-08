@@ -32,8 +32,9 @@ This project is that framework.
 
 ## 🚀 Live Demo
 
-> 🔗 **[Coming soon — deploying to Hugging Face Spaces]**
+> 🔗 **[Try it live → llm-eval-benchmark.streamlit.app](https://llm-eval-benchmark-5bjaesjhjlgdjs67bdfmvt.streamlit.app/)**
 
+Click **Run Eval** in the sidebar to evaluate a live LLM pipeline in real time.
 ---
 
 ## ✨ What It Does
@@ -176,11 +177,13 @@ pytest tests/ -v
 - [x] Score aggregator + SQLite regression store
 - [x] Streamlit dashboard with run history
 - [x] Cost vs quality bubble chart
-- [ ] Multi-model comparison (Groq vs Gemini)
-- [ ] Deploy to Hugging Face Spaces
-- [ ] Docker container
+- [x] Judge dimensions radar chart
+- [x] Adversarial vs normal performance comparison
+- [x] Auto insights engine
+- [x] Export report as JSON
+- [x] Docker containerized
+- [x] Deployed to Streamlit Cloud — live public URL
 
----
 
 ## 💡 Key Design Decisions
 
